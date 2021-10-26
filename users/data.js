@@ -4,9 +4,13 @@ const userCount = 10;
 const allUsers = [];
 const allUserIds = [];
 
-const getUsers = ({ knownUsers = [] } = {}) => {
-  if (allUsers.length) {
+const getUsers = ({ knownUsers = [], reload = false } = {}) => {
+  if (allUsers.length && !reload) {
     return allUsers;
+  }
+
+  while (allUsers.length) {
+    allUsers.pop();
   }
 
   for (let i = 0; i < userCount; i++) {
@@ -19,7 +23,7 @@ const getUsers = ({ knownUsers = [] } = {}) => {
       username: faker.internet.userName(),
       name: faker.name.findName(),
       roles: [],
-      ...knownUser
+      ...knownUser,
     });
   }
   return allUsers;

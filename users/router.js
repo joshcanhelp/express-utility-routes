@@ -1,8 +1,14 @@
 const faker = require("faker");
 
-const passThrough = (req, res, next) => next(); 
+const passThrough = (req, res, next) => next();
 
-module.exports = ({ express, users, requiresAuth = passThrough, stylesheet = "", views = {} }) => {
+module.exports = ({
+  express,
+  users,
+  requiresAuth = passThrough,
+  stylesheet = "",
+  views = {},
+}) => {
   const router = express.Router();
 
   router.get("/list", requiresAuth, (req, res, next) => {
