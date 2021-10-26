@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>List Posts</title>
+    <link rel='stylesheet' href='<%= stylesheet %>' />
+  </head>
+  <body>
+    <h1>List Posts</h1>
+    <p>
+      <a href="create">Create Post</a>
+      <a href="/">Home</a>
+    </p>
+    <table>
+      <thead>
+        <tr><th>Title</th><th>Content</th><th>Published</th><th>Author ID</th></tr>
+      </thead>
+      <tbody>
+        <% posts.forEach(function(post) { %>
+          <tr>
+            <td><%= post.title %></td>
+            <td><%= post.content %></td>
+            <td><%= post.published %></td>
+            <td><%= post.author %></td>
+          </tr>
+       <% }); %> 
+      </tbody>
+    </table>
+  </body>
+</html>

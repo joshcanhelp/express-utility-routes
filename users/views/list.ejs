@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>List Users</title>
+    <link rel='stylesheet' href='<%= stylesheet %>' />
+  </head>
+  <body>
+    <h1>List Users</h1>
+    <p>
+      <a href="create">Create User</a>
+      <a href="/">Home</a>
+    </p>
+    <table>
+      <thead>
+        <tr><th>ID</th><th>Name</th><th>Username</th><th>email</th><th>Roles</th></tr>
+      </thead>
+      <tbody>
+        <% users.forEach(function(user) { %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.username %></td>
+            <td><%= user.email %></td>
+            <td><%= user.roles.join(" ") %></td>
+          </tr>
+       <% }); %> 
+      </tbody>
+    </table>
+  </body>
+</html>

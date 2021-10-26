@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create a Post</title>
+    <link rel='stylesheet' href='<%= stylesheet %>' />
+  </head>
+  <body>
+    <h1>Create a Post</h1>
+    <p>
+      <a href="list">All Posts</a>
+      <a href="/">Home</a>
+    </p>
+    <form method="post">
+      <p>
+        <label for="title">Title</label><br>
+        <input type="text" name="title" id="title">
+      </p>
+      <p>
+        <label for="content">Content</label><br>
+        <textarea name="content" id="content"></textarea>
+      </p>
+      <p>
+        <input type="submit" value="Create Post">
+      </p>
+    </form>
+  </body>
+</html>

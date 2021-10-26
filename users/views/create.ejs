@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create a User</title>
+    <link rel='stylesheet' href='<%= stylesheet %>' />
+  </head>
+  <body>
+    <h1>Create a User</h1>
+    <p>
+      <a href="list">All Users</a>
+      <a href="/">Home</a>
+    </p>
+    <form method="post">
+      <p>
+        <label for="name">Name</label><br>
+        <input type="text" name="name" id="name" required>
+      </p>
+      <p>
+        <label for="username">Username</label><br>
+        <input type="text" name="username" id="username" required>
+      </p>
+      <p>
+        <label for="email">Email</label><br>
+        <input type="email" name="email" id="email" required></input>
+      </p>
+      <p>
+        <label for="roles">Roles, separated by spaces</label><br>
+        <input type="text" name="roles" id="roles"></input>
+      </p>
+      <p>
+        <input type="submit" value="Create User">
+      </p>
+    </form>
+  </body>
+</html>
