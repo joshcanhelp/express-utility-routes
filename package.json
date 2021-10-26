@@ -1,10 +1,16 @@
 {
-  "name": "express-utility-routes",
+  "name": "@joshcanhelp/express-utility-routes",
   "version": "0.1.0",
-  "description": "Helpful utility routes that can be imported to any Express application",
+  "description": "Helper routes for Express applications",
   "main": "index.js",
   "scripts": {
     "test": "jest"
+  },
+  "dependencies": {
+    "faker": "^5.5.3"
+  },
+  "devDependencies": {
+    "jest": "^27.3.1"
   },
   "repository": {
     "type": "git",
@@ -18,11 +24,5 @@
   "bugs": {
     "url": "https://github.com/joshcanhelp/express-utility-routes/issues"
   },
-  "homepage": "https://github.com/joshcanhelp/express-utility-routes#readme",
-  "dependencies": {
-    "faker": "^5.5.3"
-  },
-  "devDependencies": {
-    "jest": "^27.3.1"
-  }
+  "homepage": "https://github.com/joshcanhelp/express-utility-routes#readme"
 }
