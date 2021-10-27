@@ -28,10 +28,16 @@ module.exports = ({
     express.urlencoded({ extended: true }),
     requiresAuth,
     (req, res, next) => {
+      const newEmail = req.body.email.trim();
+      users.some((user) => {
+        if (user.email === newEmail) {
+          throw new Error(`The email ${newEmail} already exists.`);
+        }
+      });
       users.unshift({
         name: req.body.name.trim(),
         username: req.body.username.trim(),
-        email: req.body.email.trim(),
+        email: newEmail,
         roles: req.body.roles.trim().toLowerCase().split(" "),
         id: faker.datatype.uuid(),
       });
