@@ -15,7 +15,7 @@ const getUsers = ({ knownUsers = [], reload = false } = {}) => {
   for (let i = 0; i < userCount; i++) {
     const userId = faker.datatype.uuid();
     const knownUser = knownUsers.pop() || {};
-    allUsers.push({
+    addUser({
       id: userId,
       email: faker.internet.email(),
       username: faker.internet.userName(),
@@ -27,6 +27,17 @@ const getUsers = ({ knownUsers = [], reload = false } = {}) => {
   return allUsers;
 };
 
+const addUser = (newUser) => {
+  allUsers.some((user) => {
+    if (user.email === newUser.email) {
+      throw new Error(`The email ${newUser.email} already exists.`);
+    }
+  });
+
+  allUsers.push(newUser);
+}
+
 module.exports = {
   getUsers,
+  addUser
 };

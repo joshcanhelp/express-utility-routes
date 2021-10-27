@@ -1,6 +1,6 @@
 const faker = require("faker");
 const { beforeAll, describe, it } = require("@jest/globals");
-const { getUsers } = require("../data");
+const { getUsers, addUser } = require("../data");
 
 describe("getUsers", () => {
   let firstGetUsers, secondGetUsers, firstUser;
@@ -89,4 +89,18 @@ describe("getUsers", () => {
       expect(localUsers[0].roles).toEqual(["__known_role__"]);
     });
   });
+});
+
+describe("addUser", () => {
+  let allUsers;
+
+  beforeAll(() => {
+    allUsers = getUsers();
+  });
+
+  it("throws an error if a user already exists", () => {
+    expect(() => {
+      addUser({ email: allUsers[0].email })
+    }).toThrowError();
+  })
 });
