@@ -47,7 +47,7 @@ describe("getPosts", () => {
 
     beforeAll(() => {
       authorId = faker.datatype.uuid();
-      postsWithUsers = getPosts({ userIds: [authorId], reload: true });
+      postsWithUsers = getPosts({ authorIds: [authorId], reload: true });
       firstPostWithUsers = postsWithUsers[0];
     });
 

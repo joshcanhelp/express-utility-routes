@@ -3,7 +3,7 @@ const faker = require("faker");
 const postsCount = 30;
 const allPosts = [];
 
-const getPosts = ({ userIds = [], reload = false } = {}) => {
+const getPosts = ({ authorIds = [], reload = false } = {}) => {
   if (allPosts.length && !reload) {
     return allPosts;
   }
@@ -19,9 +19,9 @@ const getPosts = ({ userIds = [], reload = false } = {}) => {
       published: faker.date.past(1),
     };
 
-    if (userIds.length) {
+    if (authorIds.length) {
       const randomUserId =
-        userIds[Math.ceil(Math.random() * userIds.length) - 1];
+        authorIds[Math.ceil(Math.random() * authorIds.length) - 1];
       newPost.author = randomUserId;
     }
 
