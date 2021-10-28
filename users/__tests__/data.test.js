@@ -98,9 +98,15 @@ describe("addUser", () => {
     allUsers = getUsers();
   });
 
-  it("throws an error if a user already exists", () => {
+  it("throws an error if a user's email already exists", () => {
     expect(() => {
-      addUser({ email: allUsers[0].email })
+      addUser({ email: allUsers[0].email });
     }).toThrowError();
-  })
+  });
+
+  it("throws an error if a user's id already exists", () => {
+    expect(() => {
+      addUser({ id: allUsers[0].id });
+    }).toThrowError();
+  });
 });
