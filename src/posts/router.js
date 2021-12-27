@@ -15,6 +15,13 @@ module.exports = ({
     res.render(viewPath, localVars);
   });
 
+  router.get("/list/:authorId", requiresAuth, (req, res, next) => {
+    const viewPath = views.list || `${__dirname}/views/list`;
+    const authorPosts = posts.filter((post) => post.author === req.params.authorId);
+    const localVars = { stylesheet, posts: authorPosts };
+    res.render(viewPath, localVars);
+  });
+
   router.get("/create", requiresAuth, (req, res, next) => {
     const viewPath = views.list || `${__dirname}/views/create`;
     const localVars = { stylesheet };
