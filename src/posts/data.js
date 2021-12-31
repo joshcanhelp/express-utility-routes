@@ -1,9 +1,8 @@
 const faker = require("faker");
 
-const postsCount = 30;
 const allPosts = [];
 
-const getPosts = ({ authorIds = [], reload = false } = {}) => {
+const getPosts = ({ authorIds = [], reload = false, count = 20 } = {}) => {
   if (allPosts.length && !reload) {
     return allPosts;
   }
@@ -12,10 +11,10 @@ const getPosts = ({ authorIds = [], reload = false } = {}) => {
     allPosts.pop();
   }
 
-  for (let i = 0; i < postsCount; i++) {
+  for (let i = 0; i < count; i++) {
     const newPost = {
-      title: faker.random.words(10),
-      content: faker.random.words(100),
+      title: faker.random.words(5),
+      content: faker.random.words(50),
       published: faker.date.past(1),
     };
 
