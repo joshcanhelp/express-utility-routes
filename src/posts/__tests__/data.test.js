@@ -10,12 +10,21 @@ describe("getPosts", () => {
     secondGetPosts = getPosts();
   });
 
-  it("returns 30 posts", () => {
-    expect(firstGetPosts.length).toEqual(30);
-  });
-
   it("does not change data between calls", () => {
     expect(firstGetPosts).toMatchObject(secondGetPosts);
+  });
+
+  describe("post count option", () => {
+    let postCount, postCountCheck;
+
+    beforeAll(() => {
+      postCount = faker.datatype.number();
+      postCountCheck = getPosts({ count: postCount, reload: true });
+    });
+  
+    it("returns the correct number of posts", () => {
+      expect(postCountCheck.length).toEqual(postCount);
+    });
   });
 
   describe("posts without users", () => {
