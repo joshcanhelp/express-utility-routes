@@ -1,6 +1,6 @@
 {
   "name": "@joshcanhelp/express-utility-routes",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Helper routes for Express applications",
   "main": "index.js",
   "scripts": {
